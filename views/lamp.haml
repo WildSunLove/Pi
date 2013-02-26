@@ -1,0 +1,9 @@
+%div{style: "width:100%;text-align:center", id: "lamp_div"}
+  %h1 Lamp Status: #{@status}
+  %form{action: "lamp", method: "post"}
+    %p
+      %button{name: "mode", type: "submit", class: "btn btn-large btn-primary", value: "on"} On
+    %p
+      %button{name: "mode", type: "submit", class: "btn btn-large btn-primary", value: "off"} Off
+    %p
+      %button{name: "mode", type: "submit", class: "btn btn-large btn-primary", value: "toggle"} Toggle

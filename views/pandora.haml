@@ -1,0 +1,29 @@
+:javascript
+  update_info = function(){
+    $.get("song_info", function(data){
+      $("#song_info").html(data);
+    })
+  }
+  update_info();
+  setInterval(update_info, 5000);
+  $(document).on("click", "#controls a", function(e){
+    $.post("send_command", {cmd: $(this).attr("data-cmd")})
+  })
+%h3#song_info
+
+#controls
+  %a{class: "btn", href: "#", data: {cmd: "n"}}
+    %i{class: "icon-forward"}
+  %a{class: "btn", href: "#", data: {cmd: "+"}}
+    %i{class: "icon-thumbs-up"}
+  %a{class: "btn", href: "#", data: {cmd: "-"}}
+    %i{class: "icon-thumbs-down"}
+  %a{class: "btn", href: "#", data: {cmd: "p"}}
+    %i{class: "icon-pause"}
+    %i{class: "icon-play"}
+  %a{class: "btn", href: "#", data: {cmd: ")"}}
+    %i{class: "icon-volume-up"}
+  %a{class: "btn", href: "#", data: {cmd: "("}}
+    %i{class: "icon-volume-down"}
+
+
